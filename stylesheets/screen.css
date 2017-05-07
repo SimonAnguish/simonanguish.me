@@ -12,3 +12,8 @@ body {
   font-size: 2em !important;
   font-weight: 100;
 }
+
+/* line 15, ../sass/screen.scss */
+.card-image {
+  width: auto;
+}
