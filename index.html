@@ -6,14 +6,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Home - simonanguish.me</title>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link href="lib/bootstrap-css/css/bootstrap.css" rel="stylesheet">
-  <link href="lib/jquery-ui/themes/smoothness/jquery-ui.css" rel="stylesheet"/>
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
   <link href="/stylesheets/print.css" media="print" rel="stylesheet" type="text/css" />
   <!--[if IE]>
       <link href="/stylesheets/ie.css" media="screen, projection" rel="stylesheet" type="text/css" />
   <![endif]-->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.2/css/materialize.min.css">
+
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
 </head>
 <body>
   <nav>
@@ -25,47 +25,28 @@
     </div>
   </nav>
   <div class="container">
-    <h2 class="main_header">Hi. My name is Simon, and this is where I build things to show off!</h2>
-    <p class="main_text lead">Feel free to take a look at my <a href="https://github.com/SimonAnguish">Github</a> or my <a href="https://www.linkedin.com/in/simon-anguish-79979989">LinkedIn</a>.</p>
+    <h2 class="main_header">Hi. My name is Simon, and these are some projects of mine!</h2>
 
-    <div class="row">
-      <div class="col s12 m4">
-        <div class="card blue-grey darken-2">
-          <div class="card-image">
-            <img src="/gfx/labyrinth_gui.png" height="190px;">
-          </div>
-          <div class="card-action white-text">
-            <span class="card-title"><a href="https://github.com/SimonAnguish/Labyrinth">Labyrinth</a></span>
-            <i class="material-icons tiny">lock</i>
-            <p>A board game written in Java</p>
-          </div>
-        </div>
-      </div>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        console.log("Hello, World");
+        $.getJSON("/projects.json", function(data) {
+          $.each(data.items, function(key, val) {
+            $('#project-list').append("<div class='col s12 m4'>\
+                <div class='card blue-grey darken-2'><div class='card-image'>\
+                <img src='" + val.imgurl + "' height='190px;'></div>\
+                <div class='card-action white-text'>\
+                <span class='card-title'><a href='" + val.linkurl + "'>" + val.title + "</a></span>\
+                <p>" + val.description + "</p></div></div></div>\
+              ");
+          });
+        });
+      });
+    </script>
 
-      <div class="col s12 m4">
-        <div class="card blue-grey darken-2">
-          <div class="card-image valign-wrapper">
-            <img src="/gfx/map-generator_gui.png" height="190px;">
-          </div>
-          <div class="card-action white-text">
-            <span class="card-title"><a href="https://github.com/SimonAnguish/Map-Generator">Map Generator</a></span>
-            <!-- <i class="material-icons tiny">lock</i> -->
-            <p>A Map Generator written in Java</p>
-          </div>
-        </div>
-      </div>
+    <div>
+      <div class="row" id="project-list">
 
-      <div class="col s12 m4">
-        <div class="card blue-grey darken-2">
-          <div class="card-image valign-wrapper">
-            <img src="/gfx/default.jpg" height="190px;">
-          </div>
-          <div class="card-action white-text">
-            <span class="card-title"><a href="https://github.com/SimonAnguish/Class-Edit-Tracker">Class Tracker</a></span>
-            <!-- <i class="material-icons tiny">lock</i> -->
-            <p>Tracks changes to UVM catalogue.</p>
-          </div>
-        </div>
       </div>
     </div>
   </div>
