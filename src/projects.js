@@ -1,5 +1,4 @@
 function ProjectsCtrl($scope) {
-	$scope.test = "Hello, World";
 	$scope.items = [
 		{
 			title: "Labyrinth",
@@ -16,6 +15,11 @@ function ProjectsCtrl($scope) {
 			imgurl: "/gfx/default.jpg",
 			linkurl: "https://github.com/SimonAnguish/Class-Edit-Tracker",
 			description: "Tracks changes to UVM catalogue"
+		},{
+			title: "simonanguish.me",
+			imgurl: "/gfx/simonanguish_me.png",
+			lunkurl: "simonanguish.me",
+			description: "Ny personal website"
 		}
 	];
 }

@@ -1,21 +1,17 @@
 <!doctype html>
-<html lang="en" ng-app>
+<html ng-app>
 <head>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
-  <script type="text/javascript" src="file:///C:/Users/Simon%20Anguish/Websites/simonanguish.me/projects.js"></script>
+  <script src="http://code.angularjs.org/angular-1.0.0rc3.min.js"></script>
+  <script type="text/javascript" src="/src/projects.js"></script>
 
   <meta charset="utf-8">
   <title>Home - simonanguish.me</title>
-  <link href="file:///C:/Users/Simon%20Anguish/Websites/simonanguish.me/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
-  <link href="file:///C:/Users/Simon%20Anguish/Websites/simonanguish.me/stylesheets/print.css" media="print" rel="stylesheet" type="text/css" />
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
+  <link href="/stylesheets/print.css" media="print" rel="stylesheet" type="text/css" />
   <!--[if IE]>
       <link href="/stylesheets/ie.css" media="screen, projection" rel="stylesheet" type="text/css" />
   <![endif]-->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.2/css/materialize.min.css">
-
-  
-
-
 </head>
 <body>
   <nav>
@@ -30,14 +26,16 @@
   <div class="container">
     <h2 class="main_header">Hi. My name is Simon, and these are some projects of mine!</h2>
     <div ng-controller="ProjectsCtrl">
-    {{test}}
-      <div class="col m4" ng-repeat="item in items">
-        <div class="card blue-grey">
-          <div class="card-image">
-            <!-- <img src="{{ item.imgurl }}" height="190px;"> -->
-          </div>
-          <div class="card-content">
-            <span class="card-title">{{item.title}}</span>
+      <div class="row">
+        <div class="col m4 s12" ng-repeat="item in items">
+          <div class="card blue-grey white-text">
+            <div class="card-image">
+              <img src="{{ item.imgurl }}" height="190px;">
+            </div>
+            <div class="card-action">
+              <span class="card-title"><a href="{{item.linkurl}}">{{item.title}}</a></span>
+              <p>{{item.description}}</p>
+            </div>
           </div>
         </div>
       </div>
